@@ -21,11 +21,11 @@ void compute()
     for (int i = 1; i <= 26; ++i) dp[i][1][i] = 1;
     for (int i = 1; i <= 26; ++i) for (int j = 1; j <= i; ++j)
     {
-        for (int k = 0; k <= 351; ++k)
+        for (int k = 1; k <= 351; ++k)
         {
             dp[i][j][k] += dp[i - 1][j][k];
             // 判斷是否能將 i 接上
-            if (j > 0 && k >= i) dp[i][j][k] += dp[i - 1][j - 1][k - i];
+            if (k >= i) dp[i][j][k] += dp[i - 1][j - 1][k - i];
         }
     }
 }
